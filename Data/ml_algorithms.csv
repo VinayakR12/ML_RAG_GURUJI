@@ -1,0 +1,21 @@
+Algorithm,Type,Pros,Cons,Use Cases
+Linear Regression,Supervised (Regression),Simple and interpretable; Fast to train; Works well with linearly separable data,Sensitive to outliers; Assumes linearity; Limited flexibility,House price prediction; Sales forecasting
+Logistic Regression,Supervised (Classification),Probabilistic output; Easy to implement; Interpretable,Struggles with non-linear boundaries; Needs feature scaling,Spam detection; Disease diagnosis
+Decision Tree,Supervised (Classification/Regression),Easy to interpret; Handles non-linear data; No feature scaling needed,Prone to overfitting; Unstable with small data,Loan approval; Customer churn prediction
+Random Forest,Supervised Ensemble,Reduces overfitting; Works well with complex data; High accuracy,Computationally expensive; Less interpretable,Fraud detection; Feature importance ranking
+Support Vector Machine (SVM),Supervised (Classification),Effective with high-dimensional data; Robust to overfitting on small datasets,Slow with large datasets; Hard to tune kernels,Face recognition; Text classification
+KNN (K-Nearest Neighbors),Supervised (Classification/Regression),Simple; No training needed; Works with multi-class problems,Computationally heavy at inference; Sensitive to irrelevant features,Recommender systems; Image classification
+Naive Bayes,Supervised (Classification),Fast; Works well with text data; Handles missing data,Strong independence assumption; Weak with correlated features,Spam filtering; Sentiment analysis
+K-Means,Unsupervised (Clustering),Simple; Scalable; Works well with spherical clusters,Needs pre-defined K; Struggles with non-spherical data,Customer segmentation; Image compression
+Hierarchical Clustering,Unsupervised (Clustering),No need to pre-define clusters; Dendrogram visualization,Not scalable for big data; Sensitive to noise,Genomics; Document clustering
+DBSCAN,Unsupervised (Clustering),Detects arbitrary shaped clusters; Handles noise,Performance drops in high dimensions; Needs careful parameter tuning,Anomaly detection; Spatial clustering
+PCA (Principal Component Analysis),Dimensionality Reduction,Reduces dimensionality; Improves speed; Removes noise,Loses interpretability; Assumes linear relationships,Data visualization; Preprocessing for ML models
+t-SNE,Dimensionality Reduction,Excellent for visualization; Captures non-linear relationships,Computationally expensive; Only good for visualization,High-dimensional embeddings; NLP word vectors
+Neural Networks (Feedforward),Deep Learning,Powerful function approximator; Can model complex relationships,Requires lots of data; Black-box model,Stock prediction; Image recognition
+CNN (Convolutional Neural Network),Deep Learning,Great for image data; Captures spatial hierarchies,Needs large datasets; High computational cost,Computer vision; Medical imaging
+RNN (Recurrent Neural Network),Deep Learning,Good for sequential data; Learns temporal dependencies,Vanishing gradient problem; Struggles with long sequences,Speech recognition; Time series forecasting
+LSTM (Long Short-Term Memory),Deep Learning,Overcomes vanishing gradient; Captures long-term dependencies,Computationally heavy; Training complexity,Language modeling; Text generation
+Transformer,Deep Learning,Handles long sequences efficiently; Scales well; State-of-the-art in NLP,Requires large datasets and compute; Hard to interpret,Machine translation; Chatbots
+Gradient Boosting (XGBoost, LightGBM, CatBoost),Ensemble Learning,High accuracy; Handles different data types; Regularization included,Computationally intensive; Sensitive to hyperparameters,Kaggle competitions; Structured tabular data
+Reinforcement Learning (Q-Learning, DQN),Reinforcement Learning,Decision-making in dynamic environments; Learns policies,Hard to train; Requires lots of interactions,Robotics; Game playing
+GANs (Generative Adversarial Networks),Generative Deep Learning,Generates realistic data; Creative applications,Training instability; Mode collapse,Image generation; Data augmentation

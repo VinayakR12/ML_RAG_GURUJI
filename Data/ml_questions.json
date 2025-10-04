@@ -1,0 +1,214 @@
+[
+  {
+    "question": "What is Machine Learning?",
+    "answer": "Machine Learning is a subset of Artificial Intelligence that enables systems to learn patterns from data and make predictions or decisions without explicit programming."
+  },
+  {
+    "question": "What are the main types of Machine Learning?",
+    "answer": "The main types are Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, and Reinforcement Learning."
+  },
+  {
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning is when a model learns from labeled data, where input-output pairs are provided. Example: predicting house prices."
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "answer": "Unsupervised learning deals with unlabeled data where the algorithm finds hidden patterns, such as clustering customers."
+  },
+  {
+    "question": "What is reinforcement learning?",
+    "answer": "Reinforcement learning involves an agent interacting with an environment and learning by receiving rewards or penalties."
+  },
+  {
+    "question": "What are some examples of supervised algorithms?",
+    "answer": "Linear Regression, Logistic Regression, Decision Trees, Random Forest, Support Vector Machines, Neural Networks."
+  },
+  {
+    "question": "What is linear regression used for?",
+    "answer": "Linear regression is used for predicting continuous variables by fitting a straight line to the data."
+  },
+  {
+    "question": "What assumptions does linear regression make?",
+    "answer": "Assumptions include linearity, independence of errors, homoscedasticity, no multicollinearity, and normally distributed errors."
+  },
+  {
+    "question": "What is logistic regression?",
+    "answer": "Logistic regression is a classification algorithm that uses the sigmoid function to predict probabilities between 0 and 1."
+  },
+  {
+    "question": "Why do we use sigmoid in logistic regression?",
+    "answer": "The sigmoid maps any real number into the range (0,1), making it suitable for probabilities."
+  },
+  {
+    "question": "What is the decision boundary in logistic regression?",
+    "answer": "It is the threshold (often 0.5) above which the predicted probability is classified as 1, otherwise 0."
+  },
+  {
+    "question": "What is overfitting?",
+    "answer": "Overfitting happens when a model learns noise and details from the training set, performing poorly on unseen data."
+  },
+  {
+    "question": "What is underfitting?",
+    "answer": "Underfitting occurs when a model is too simple to capture the underlying trend, leading to poor performance on both training and test sets."
+  },
+  {
+    "question": "What is regularization?",
+    "answer": "Regularization is a technique to reduce overfitting by adding a penalty to large weights, examples include L1 (Lasso) and L2 (Ridge)."
+  },
+  {
+    "question": "What is L1 regularization?",
+    "answer": "L1 regularization (Lasso) adds the absolute value of weights to the loss, encouraging sparsity in coefficients."
+  },
+  {
+    "question": "What is L2 regularization?",
+    "answer": "L2 regularization (Ridge) adds the squared value of weights to the loss, shrinking weights but not forcing them to zero."
+  },
+  {
+    "question": "What is dropout?",
+    "answer": "Dropout randomly sets neurons to zero during training, forcing the network to be more robust and reducing overfitting."
+  },
+  {
+    "question": "What is early stopping?",
+    "answer": "Early stopping halts training when validation error increases, preventing overfitting."
+  },
+  {
+    "question": "What are decision trees?",
+    "answer": "Decision trees split data based on feature thresholds to make predictions, resembling a tree structure."
+  },
+  {
+    "question": "What are the splitting criteria for decision trees?",
+    "answer": "Splits can be made using Gini impurity or Information Gain (based on entropy)."
+  },
+  {
+    "question": "What is Random Forest?",
+    "answer": "Random Forest is an ensemble method that builds multiple decision trees on bootstrapped samples and averages their results."
+  },
+  {
+    "question": "What are the advantages of Random Forest?",
+    "answer": "Advantages include robustness to overfitting, ability to handle nonlinear data, and high accuracy."
+  },
+  {
+    "question": "What is Gradient Boosting?",
+    "answer": "Gradient Boosting builds models sequentially, where each new model corrects errors of the previous one."
+  },
+  {
+    "question": "What are popular Gradient Boosting frameworks?",
+    "answer": "Popular frameworks include XGBoost, LightGBM, and CatBoost."
+  },
+  {
+    "question": "What is bagging?",
+    "answer": "Bagging (Bootstrap Aggregating) trains multiple models on random subsets of data and combines their predictions."
+  },
+  {
+    "question": "What is boosting?",
+    "answer": "Boosting builds models sequentially, giving more weight to previously misclassified samples."
+  },
+  {
+    "question": "What is a perceptron?",
+    "answer": "A perceptron is the simplest neural network unit that computes a weighted sum of inputs and applies an activation function."
+  },
+  {
+    "question": "What is an activation function?",
+    "answer": "Activation functions introduce non-linearity into neural networks. Examples: ReLU, sigmoid, tanh."
+  },
+  {
+    "question": "What is ReLU?",
+    "answer": "ReLU (Rectified Linear Unit) outputs 0 for negative inputs and the input itself for positive values."
+  },
+  {
+    "question": "What is the vanishing gradient problem?",
+    "answer": "When gradients become too small during backpropagation, preventing weights from updating effectively, common in deep networks."
+  },
+  {
+    "question": "What are CNNs?",
+    "answer": "Convolutional Neural Networks are specialized for image data, using convolution filters to extract spatial patterns."
+  },
+  {
+    "question": "What are pooling layers in CNN?",
+    "answer": "Pooling layers reduce spatial dimensions, e.g., Max Pooling selects the maximum value in a window."
+  },
+  {
+    "question": "What are RNNs?",
+    "answer": "Recurrent Neural Networks handle sequential data by maintaining a hidden state across timesteps."
+  },
+  {
+    "question": "What is LSTM?",
+    "answer": "Long Short-Term Memory is a type of RNN designed to overcome vanishing gradients using gates to control information flow."
+  },
+  {
+    "question": "What are GRUs?",
+    "answer": "Gated Recurrent Units are a simplified version of LSTMs with fewer gates, often faster to train."
+  },
+  {
+    "question": "What are Transformers?",
+    "answer": "Transformers are models based on self-attention, allowing tokens to attend to each other directly without recurrence."
+  },
+  {
+    "question": "What is self-attention?",
+    "answer": "Self-attention computes the importance of each token relative to others, enabling contextual understanding in sequences."
+  },
+  {
+    "question": "What are embeddings?",
+    "answer": "Embeddings are vector representations of words, tokens, or entities in continuous space, capturing semantic meaning."
+  },
+  {
+    "question": "What is gradient descent?",
+    "answer": "Gradient Descent is an optimization algorithm that updates parameters by moving opposite to the gradient of the loss function."
+  },
+  {
+    "question": "What is stochastic gradient descent?",
+    "answer": "SGD updates parameters using a single randomly chosen sample at each step instead of the whole dataset."
+  },
+  {
+    "question": "What is the Adam optimizer?",
+    "answer": "Adam combines momentum and RMSProp, adapting learning rates for each parameter and accelerating convergence."
+  },
+  {
+    "question": "Why does Adam sometimes generalize worse than SGD?",
+    "answer": "Because Adam adapts aggressively, it may overfit or converge to sharp minima, while SGD often finds flatter minima."
+  },
+  {
+    "question": "What is PCA?",
+    "answer": "Principal Component Analysis reduces dimensionality by projecting data onto directions of maximum variance."
+  },
+  {
+    "question": "What is K-Means?",
+    "answer": "K-Means is a clustering algorithm that partitions data into k clusters by minimizing within-cluster variance."
+  },
+  {
+    "question": "What is DBSCAN?",
+    "answer": "DBSCAN is a density-based clustering algorithm that groups closely packed points and marks outliers as noise."
+  },
+  {
+    "question": "What is the bias-variance tradeoff?",
+    "answer": "Bias is error from oversimplification; variance is error from overcomplexity. The goal is to balance both for generalization."
+  },
+  {
+    "question": "What is cross-validation?",
+    "answer": "Cross-validation splits data into folds, training on some and validating on others, improving reliability of evaluation."
+  },
+  {
+    "question": "What is the ROC curve?",
+    "answer": "Receiver Operating Characteristic curve plots True Positive Rate vs False Positive Rate, measuring classification performance."
+  },
+  {
+    "question": "What is AUC?",
+    "answer": "Area Under the Curve quantifies the ROC curve; a higher AUC indicates better classifier performance."
+  },
+  {
+    "question": "What is precision?",
+    "answer": "Precision is the proportion of correctly predicted positives among all predicted positives."
+  },
+  {
+    "question": "What is recall?",
+    "answer": "Recall is the proportion of correctly predicted positives among all actual positives."
+  },
+  {
+    "question": "What is F1-score?",
+    "answer": "The F1-score is the harmonic mean of precision and recall, useful for imbalanced data."
+  },
+  {
+    "question": "What is data leakage?",
+    "answer": "Data leakage happens when information from the test set unintentionally influences the model during training."
+  }
+]

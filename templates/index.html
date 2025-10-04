@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guruji 🤖 – AI ML Mentor</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+  /* ======== THEME VARIABLES ======== */
+  :root {
+    --gradient-primary: linear-gradient(135deg, #6f00ff 0%, #00dbde 100%);
+    --gradient-bg: radial-gradient(circle at 10% 20%, #1e1b4b, #0f172a 70%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --blur: blur(18px);
+    --text-light: #e2e8f0;
+    --text-accent: #38bdf8;
+  }
+
+  body {
+    background: var(--gradient-bg);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* ======== HEADER ======== */
+  header {
+    background: var(--gradient-primary);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  header i {
+    font-size: 2rem;
+    background: white;
+    color: #6f00ff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+  header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+  }
+
+  /* ======== CHAT CONTAINER ======== */
+  #chat-container {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 900px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .message {
+    max-width: 80%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    position: relative;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .student {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #00259e, #00c8ff);
+    color: white;
+    border-radius: 18px 18px 0 18px;
+  }
+
+  .guruji {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-light);
+    border-radius: 18px 18px 18px 0;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  .guruji i {
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    font-size: 1.8rem;
+    color: #00dbde;
+    text-shadow: 0 0 10px rgba(0,219,222,0.6);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ======== INPUT SECTION ======== */
+  #input-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 15px;
+  }
+
+  #question {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    outline: none;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  #question::placeholder {
+    color: #94a3b8;
+  }
+
+  #question:focus {
+    box-shadow: 0 0 0 2px #00dbde;
+  }
+
+  #send-btn {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease, box-shadow 0.3s;
+  }
+
+  #send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(111,0,255,0.4);
+  }
+
+  /* ======== LOADER ======== */
+  #loader {
+    display: none;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .loader-spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top-color: #00dbde;
+    border-radius: 50%;
+    margin: auto;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+
+  /* ======== FOOTER ======== */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e1;
+    font-size: 0.95rem;
+  }
+  footer a {
+    color: var(--text-accent);
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1><i class="fa-solid fa-robot"></i> Guruji AI – ML Mentor</h1>
+    <p>Ask. Learn. Grow. Master Machine Learning with Guruji</p>
+  </header>
+
+  <!-- ===== CHAT AREA ===== -->
+  <main id="chat-container">
+    <div id="chat-box">
+      <div class="message guruji">
+        <i class="fa-solid fa-robot"></i>
+        Hello, I’m <strong>Guruji</strong> – your AI-powered Machine Learning Mentor.<br>
+        Ask me anything about ML concepts, algorithms, and Data Science.!
+      </div>
+    </div>
+
+    <div id="loader">
+      <div class="loader-spinner"></div>
+      <p class="mt-2 text-slate-300">Guruji is thinking...</p>
+    </div>
+
+    <div id="input-box">
+      <input type="text" id="question" placeholder="Type your question about ML, AI, or Data Science..." />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 <strong>Guruji AI Chat</strong> | Empowering Students in ML | 
+   
+  </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const chatBox = document.getElementById('chat-box');
+const questionInput = document.getElementById('question');
+const sendBtn = document.getElementById('send-btn');
+const loader = document.getElementById('loader');
+
+function parseTextToHTML(text) {
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  lines.forEach(line => {
+    if (line.trim().startsWith('* ')) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${line.trim().substring(2)}</li>`;
+    } else {
+      if (inList) { html += '</ul>'; inList = false; }
+      html += `<p>${line}</p>`;
+    }
+  });
+  if (inList) html += '</ul>';
+  return html;
+}
+
+async function typeMessage(message, isGuruji=true) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'message ' + (isGuruji ? 'guruji' : 'student');
+  if (isGuruji) msgDiv.innerHTML = '<i class="fa-solid fa-robot"></i>';
+  chatBox.appendChild(msgDiv);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  const content = isGuruji ? parseTextToHTML(message) : message;
+  let i = 0;
+  while (i < content.length) {
+    msgDiv.innerHTML = (isGuruji ? '<i class="fa-solid fa-robot"></i>' : '') + content.substring(0, i+1);
+    i++;
+    chatBox.scrollTop = chatBox.scrollHeight;
+    await new Promise(r => setTimeout(r, 3));
+  }
+}
+
+sendBtn.onclick = async () => {
+  const question = questionInput.value.trim();
+  if (!question) return;
+
+  await typeMessage(`You: ${question}`, false);
+  questionInput.value = '';
+  loader.style.display = 'block';
+
+  // Simulate API call (replace with actual backend call)
+  setTimeout(async () => {
+    const res = await fetch('/ask', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question})
+    });
+    const data = await res.json();
+    loader.style.display = 'none';
+    await typeMessage(data.answer, true);
+  }, 1200);
+};
+
+questionInput.addEventListener("keyup", e => {
+  if (e.key === "Enter") sendBtn.click();
+});
+</script>
+</body>
+</html>

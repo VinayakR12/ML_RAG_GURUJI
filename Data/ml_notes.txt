@@ -1,0 +1,215 @@
+MACHINE LEARNING – THEORY NOTES
+
+1. INTRODUCTION TO MACHINE LEARNING
+Machine Learning (ML) is a field of Artificial Intelligence that enables systems to learn patterns from data and make predictions or decisions without being explicitly programmed. Unlike traditional programming where rules are hardcoded, ML allows the machine to infer rules by analyzing examples. 
+
+Types of ML:
+- Supervised Learning: Model learns from labeled data (input → output). Example: predicting house prices from features.
+- Unsupervised Learning: Model learns hidden patterns in unlabeled data. Example: clustering customers into groups.
+- Semi-supervised Learning: Small labeled data + large unlabeled data.
+- Reinforcement Learning: Agent learns by interacting with an environment and receiving rewards or penalties.
+
+Key Idea: Data + Algorithm + Model Evaluation = Machine Learning Workflow.
+
+---
+
+2. LINEAR MODELS
+
+2.1 LINEAR REGRESSION
+Linear regression is the simplest supervised algorithm used for predicting a continuous value. The model assumes a linear relationship between input features and the target variable.
+
+Equation: y = w1*x1 + w2*x2 + ... + wn*xn + b
+
+Training is done using the Ordinary Least Squares method, minimizing Mean Squared Error (MSE).
+
+Advantages:
+- Simple and interpretable.
+- Good for linearly separable problems.
+
+Disadvantages:
+- Cannot capture complex nonlinear relationships.
+- Sensitive to outliers and multicollinearity.
+
+Interview Angle: “What assumptions does linear regression make?” → Linearity, independence of errors, homoscedasticity, no multicollinearity, normally distributed errors.
+
+2.2 LOGISTIC REGRESSION
+Used for classification problems (output is categorical). Instead of predicting directly, logistic regression uses the sigmoid function to map values between 0 and 1.
+
+Sigmoid Function: σ(z) = 1 / (1 + e^-z)
+
+Decision boundary: If probability > 0.5, class = 1; else class = 0.
+
+Pros:
+- Simple, interpretable, works well for binary classification.
+Cons:
+- Limited to linear decision boundaries.
+- Poor with high-dimensional nonlinear data.
+
+Interview Angle: “Why use logistic regression instead of linear regression for classification?” → Because probabilities need to be bounded between 0 and 1.
+
+---
+
+3. DECISION TREES AND ENSEMBLES
+
+3.1 DECISION TREES
+Decision Trees split data into branches using features that maximize information gain or minimize impurity.
+
+Splitting criteria:
+- Gini Impurity
+- Entropy (Information Gain)
+
+Pros:
+- Easy to interpret.
+- Handles nonlinear data and feature interactions.
+
+Cons:
+- Prone to overfitting.
+- Sensitive to small changes in data.
+
+3.2 RANDOM FORESTS
+Random Forest = an ensemble of decision trees trained on bootstrapped samples with random feature selection. Uses majority voting for classification or averaging for regression.
+
+Pros:
+- Reduces overfitting.
+- Robust to noise.
+
+Cons:
+- Less interpretable than a single tree.
+- Requires more computation.
+
+3.3 GRADIENT BOOSTING
+Boosting builds trees sequentially, where each new tree corrects errors of the previous one. Examples: XGBoost, LightGBM, CatBoost.
+
+Pros:
+- State-of-the-art performance on tabular data.
+- Handles missing data well.
+
+Cons:
+- Slower training compared to Random Forest.
+- Sensitive to hyperparameters.
+
+---
+
+4. NEURAL NETWORKS
+
+4.1 PERCEPTRON
+The perceptron is the simplest neural model: input features → weighted sum → activation function → output.
+
+Limitation: A single perceptron can only learn linearly separable functions.
+
+4.2 MULTILAYER PERCEPTRON (MLP)
+An MLP contains multiple layers with nonlinear activation functions (ReLU, sigmoid, tanh). Capable of learning complex nonlinear functions.
+
+4.3 CONVOLUTIONAL NEURAL NETWORKS (CNN)
+Specialized for image data. Uses convolution layers to capture spatial patterns.
+
+Key concepts:
+- Filters/Kernels
+- Stride and Padding
+- Pooling layers
+
+Applications: Image recognition, object detection, medical imaging.
+
+4.4 RECURRENT NEURAL NETWORKS (RNN)
+Designed for sequential data (text, time-series).
+
+Limitations: Vanishing/exploding gradient problem.
+
+Variants: LSTM (Long Short-Term Memory), GRU (Gated Recurrent Unit).
+
+4.5 TRANSFORMERS
+Transformers revolutionized NLP by replacing recurrence with self-attention. Core idea: Each token attends to every other token.
+
+Key Concepts:
+- Self-Attention
+- Positional Encoding
+- Encoder-Decoder architecture
+
+Applications: GPT, BERT, T5, etc.
+
+Interview Angle: “Why did transformers replace RNNs?” → They parallelize training, capture long-range dependencies better.
+
+---
+
+5. OPTIMIZATION
+
+5.1 GRADIENT DESCENT
+Optimization algorithm used to minimize loss function.
+
+Variants:
+- Batch Gradient Descent
+- Stochastic Gradient Descent (SGD)
+- Mini-batch SGD
+
+5.2 ADVANCED OPTIMIZERS
+- Momentum: Adds inertia to updates.
+- RMSProp: Scales learning rate by moving average of squared gradients.
+- Adam: Combines Momentum + RMSProp, most widely used.
+
+Interview Angle: “Why not always use Adam?” → Can overfit, poor generalization sometimes compared to SGD.
+
+---
+
+6. REGULARIZATION
+
+- L1 Regularization (Lasso): Encourages sparsity.
+- L2 Regularization (Ridge): Shrinks weights but doesn’t zero them out.
+- Dropout: Randomly drops neurons during training.
+- Early Stopping: Stops training when validation error increases.
+
+---
+
+7. UNSUPERVISED LEARNING
+
+7.1 CLUSTERING
+- K-Means: Minimizes distance to cluster centers.
+- Hierarchical Clustering: Builds a hierarchy of clusters.
+- DBSCAN: Density-based clustering.
+
+7.2 DIMENSIONALITY REDUCTION
+- PCA (Principal Component Analysis): Projects data into lower dimensions while retaining variance.
+- t-SNE/UMAP: Nonlinear embeddings for visualization.
+
+---
+
+8. EVALUATION METRICS
+
+- Regression: MSE, RMSE, MAE, R^2.
+- Classification: Accuracy, Precision, Recall, F1-score, ROC-AUC.
+- Ranking: NDCG, MAP.
+- Imbalanced data: Precision-Recall curve is better than accuracy.
+
+---
+
+9. BIAS-VARIANCE TRADEOFF
+
+- Bias: Error from overly simplistic models.
+- Variance: Error from overly complex models.
+Goal: Balance both for optimal generalization.
+
+Interview Angle: “High bias vs high variance example?” → Linear regression on nonlinear data = high bias; deep neural net on small dataset = high variance.
+
+---
+
+10. PRACTICAL ISSUES
+
+- Data preprocessing is 80% of the work.
+- Feature engineering often beats complex models.
+- Hyperparameter tuning is critical (Grid Search, Random Search, Bayesian Optimization).
+- Overfitting is the #1 enemy in ML.
+- Explainability tools (SHAP, LIME) are important for real-world deployment.
+
+---
+
+11. INTERVIEW PREP TIPS
+
+- Be clear on definitions and assumptions.
+- Explain trade-offs (interpretability vs accuracy).
+- Give real-world use cases.
+- Brush up on probability, statistics, and linear algebra.
+- Know libraries: Scikit-learn, TensorFlow, PyTorch.
+- Practice coding ML models from scratch.
+
+---
+
+
